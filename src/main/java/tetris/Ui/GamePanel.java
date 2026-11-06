@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import java.awt.Font;
 import java.awt.FontMetrics;
 import main.java.tetris.Engine.GameLoop;
+import main.java.tetris.Engine.MusicPlayer;
 import main.java.tetris.Input.KeyboardHandler;
 import main.java.tetris.Model.Board;
 import main.java.tetris.Model.PieceGenerator;
@@ -28,6 +29,7 @@ public class GamePanel extends JPanel {
     private int score = 0;
     private boolean gameOver = false;
     private Font retroFont;
+    private MusicPlayer music = new MusicPlayer();
 
     public GamePanel(){
         retroFont = loadFont();
@@ -42,6 +44,7 @@ public class GamePanel extends JPanel {
         addKeyListener(keyBoard);
         requestFocusInWindow();
         gameLoop = new GameLoop(this , board);
+                  music.play("Theme.wav");
         
     }
     
@@ -71,6 +74,9 @@ public class GamePanel extends JPanel {
         gameLoop.restart();
         repaint();
     }
+    public void toggleMusic() {
+        music.toggleMute();
+      }
     private void drawCentered(Graphics g, String text, int width, int y) {
         FontMetrics fm = g.getFontMetrics();
         g.drawString(text, (width - fm.stringWidth(text)) / 2, y);
@@ -146,9 +152,9 @@ public class GamePanel extends JPanel {
             drawCentered(g, "Press R to restart", boardW, boardH / 2 + 65);
         }
     }
-        private Font loadFont() {
+    private Font loadFont() {
         try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PressStart2P-Regular.ttf"));
+            return Font.createFont(Font.TRUETYPE_FONT, new File("resources/PressStart2P-Regular.ttf"));
         } catch (IOException | FontFormatException e) {
             System.out.println("Font not found, using fallback: " + e.getMessage());
             return new Font(Font.MONOSPACED, Font.BOLD, 12);

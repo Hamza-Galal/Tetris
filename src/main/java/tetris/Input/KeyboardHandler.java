@@ -27,6 +27,10 @@ public KeyboardHandler(GamePanel panel,Board board) {
             panel.restartGame();
             return ;
         }
+            if (e.getKeyCode() == KeyEvent.VK_M) {
+            panel.toggleMusic();
+            return;
+        }
         if (panel.isGameOver()) {
             return ;
         }
