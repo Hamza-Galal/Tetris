@@ -1,15 +1,17 @@
 # Tetris
 
-A classic Tetris game built in Java with Swing, featuring a retro pixel font, background music, scoring and a pause button.
+A classic Tetris game built in Java with Swing, featuring a retro pixel font, background music, scoring, a pause button and speed that increases as your score grows.
 
-<!-- Add a screenshot: put an image in the repo (e.g. screenshot.png) and uncomment the next line -->
-<!-- ![Gameplay](screenshot.png) -->
+# Screenshot of the Game
+
+![GamePlay](docs/Tetris.png)
+
 
 ## Download and play (Windows)
 
 No Java needed.
 
-1. Go to the [Releases page](https://github.com/Hamza-Galal/Tetris/releases) and download `Tetris.zip`.
+1. Go to the [Releases page](https://github.com/Hamza-Galal/Tetris/releases) and download `Tetris-Windows.zip`.
 2. Extract the zip.
 3. Open the `Tetris` folder and double-click `Tetris.exe`.
 
@@ -36,10 +38,20 @@ No Java needed.
 | 3 | 500 |
 | 4 | 800 |
 
+## ⚡ Game speed
+
+> **Notice:** The game gets faster as your score grows, so the longer you survive, the harder it becomes.
+
+- Pieces start by falling one row every **350 ms**.
+- Every **500 points**, they fall **20 ms faster**.
+- The speed stops increasing at **100 ms** per row, which you reach at about **6,250 points**.
+- Pressing **R** to restart resets the speed to the starting value.
+
 ## Features
 
 - All 7 tetrominoes (I, O, T, S, Z, J, L) with rotation and wall kicks
 - Line clearing and score tracking
+- Speed that increases with your score
 - Game over screen with quick restart
 - Pause button and keyboard pause
 - Looping background music with mute

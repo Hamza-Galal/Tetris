@@ -31,6 +31,7 @@ public class GameLoop implements ActionListener {
             board.lockPiece(currentPiece);
             int lines = board.clearLines();
             panel.addScore(Board.getScore(lines));
+            timer.setDelay(Math.max(100, 350 - (panel.getScore() / 500) * 20));
             panel.generateNewPiece();
             Tetromino newPiece = panel.getCurrentPiece();
             if (!board.canMove(newPiece, newPiece.getCol(), newPiece.getRow())) {
@@ -42,6 +43,7 @@ public class GameLoop implements ActionListener {
     }
     public void restart() {
         timer.stop();
+        timer.setDelay(350);
         timer.start();
     }
     public void pause() {
