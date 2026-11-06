@@ -13,11 +13,11 @@ public class GameFrame {
     frame.add(panel);
        java.awt.Image icon = null;
     try {
-        java.net.URL url = GameFrame.class.getResource("/resources/icon.png");
+        java.net.URL url = GameFrame.class.getResource("/resources/Icon.png");
         if (url != null) {
             icon = javax.imageio.ImageIO.read(url);
         } else {
-            icon = javax.imageio.ImageIO.read(new java.io.File("resources/icon.png"));
+            icon = javax.imageio.ImageIO.read(new java.io.File("resources/Icon.png"));
         }
     } catch (Exception e) {
         System.out.println("Icon error: " + e);

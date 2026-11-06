@@ -149,7 +149,8 @@ public class GamePanel extends JPanel {
         g.drawString("S: Drop", sideX, 262);
         g.drawString("W: Rotate", sideX, 289);
         g.drawString("P: Pause", sideX, 316);
-        g.drawString("R: Restart", sideX, 343);
+        g.drawString("M: Mute Song", sideX, 343);
+        g.drawString("R: Restart", sideX, 370);
        
         if (gameOver) {
             g.setColor(new Color(0, 0, 0, 190));
@@ -173,13 +174,16 @@ public class GamePanel extends JPanel {
           }
     }
         private Font loadFont() {
-        try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File("resources/PressStart2P-Regular.ttf"));
-        } catch (IOException | FontFormatException e) {
-            System.out.println("Font not found, using fallback: " + e.getMessage());
-            return new Font(Font.MONOSPACED, Font.BOLD, 12);
+    try (java.io.InputStream in = GamePanel.class.getResourceAsStream("/resources/PressStart2P-Regular.ttf")) {
+        if (in != null) {
+            return Font.createFont(Font.TRUETYPE_FONT, in);
         }
+        return Font.createFont(Font.TRUETYPE_FONT, new File("resources/PressStart2P-Regular.ttf"));
+    } catch (IOException | FontFormatException e) {
+        System.out.println("Font not found, using fallback: " + e.getMessage());
+        return new Font(Font.MONOSPACED, Font.BOLD, 12);
     }
+}
 
     private Font font(float size) {
         return retroFont.deriveFont(size);

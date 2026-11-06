@@ -35,7 +35,7 @@ public KeyboardHandler(GamePanel panel,Board board) {
             panel.togglePause();
             return;
         }
-        if (panel.isGameOver() || panel.isPaused()) {
+        if (!panel.isGameOver() && !panel.isPaused()) {
         Tetromino currentPiece = panel.getCurrentPiece();
         if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
             if (board.canMove(currentPiece, currentPiece.getCol() - 1, currentPiece.getRow())) {
