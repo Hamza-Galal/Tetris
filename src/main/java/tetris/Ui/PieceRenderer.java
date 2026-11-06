@@ -67,25 +67,25 @@ private static final int Cell_Size = 30;
     private void  setColors(Graphics g ,String type){
         switch (type) {
             case "T":
-                g.setColor(Color.MAGENTA);
+                g.setColor(new Color(160 , 0 , 240));
                 break;
             case "I":
-                g.setColor(Color.CYAN);
+                g.setColor(new Color(0 , 240 , 240));
                 break;
             case "S":
-                g.setColor(Color.RED);
+                g.setColor(new Color(0 , 240 , 0));
                 break;
             case "O":
-                g.setColor(Color.YELLOW);
+                g.setColor(new Color(240 , 240 , 0));
                 break;
             case "Z":
-                g.setColor(Color.GREEN);
+                g.setColor(new Color(240 , 0 , 0));
                 break;
             case "L":
-                g.setColor(Color.ORANGE);
+                g.setColor(new Color(240 , 160 , 0));
                 break;
             case "J":
-                g.setColor(Color.PINK);
+                g.setColor(new Color(0 , 0 , 240));
                 break;
             default:
                 g.setColor(Color.WHITE);
