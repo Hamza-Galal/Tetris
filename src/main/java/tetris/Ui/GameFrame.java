@@ -12,5 +12,6 @@ public class GameFrame {
     frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     frame.add(panel);
     frame.setVisible(true);
+    panel.requestFocusInWindow();
     }
 }

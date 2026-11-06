@@ -20,23 +20,30 @@ public class GameLoop implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        if (panel.isGameOver()) {
+            return ;
+        }
         Tetromino currentPiece = panel.getCurrentPiece();
         if (board.canMove(currentPiece, currentPiece.getCol(), currentPiece.getRow()+1)) {
             currentPiece.moveDown();
         }
         else{
             board.lockPiece(currentPiece);
-            board.clearLines();
+            int lines = board.clearLines();
+            panel.addScore(Board.getScore(lines));
             panel.generateNewPiece();
             Tetromino newPiece = panel.getCurrentPiece();
             if (!board.canMove(newPiece, newPiece.getCol(), newPiece.getRow())) {
                 timer.stop();
-                System.out.println("GAME OVER");
+                panel.setGameOver(true);
             }
         }
         panel.repaint();
     }
-    
+    public void restart() {
+        timer.stop();
+        timer.start();
+    }
         
 }
 

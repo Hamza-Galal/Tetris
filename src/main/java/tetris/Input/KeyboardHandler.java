@@ -23,6 +23,13 @@ public KeyboardHandler(GamePanel panel,Board board) {
     }
     @Override
     public void keyPressed(KeyEvent e) {
+        if (e.getKeyCode() == KeyEvent.VK_R) {
+            panel.restartGame();
+            return ;
+        }
+        if (panel.isGameOver()) {
+            return ;
+        }
         Tetromino currentPiece = panel.getCurrentPiece();
         if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
             if (board.canMove(currentPiece, currentPiece.getCol() - 1, currentPiece.getRow())) {

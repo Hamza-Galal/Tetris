@@ -70,4 +70,17 @@ public class Board {
         grid[col][0] = null;
         }
     }
+    public static int getScore(int lines){
+        switch (lines) {
+        case 1: return 100;
+        case 2: return 300;
+        case 3: return 500;
+        case 4: return 800;
+        default: return 0;
+        }
+    }
+    public void reset(){
+        grid = new String[WIDTH][HEIGHT];
+    }
+
 }
