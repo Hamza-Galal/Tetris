@@ -9,7 +9,7 @@ A classic Tetris game built in Java with Swing, featuring a retro pixel font, ba
 
 No Java needed.
 
-1. Go to the [Releases page](https://github.com/YOUR-USERNAME/Tetris/releases) and download `Tetris-Windows.zip`.
+1. Go to the [Releases page](https://github.com/Hamza-Galal/Tetris/releases) and download `Tetris-Windows.zip`.
 2. Extract the zip.
 3. Open the `Tetris` folder and double-click `Tetris.exe`.
 
