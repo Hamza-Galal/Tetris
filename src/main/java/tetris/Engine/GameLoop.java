@@ -20,7 +20,7 @@ public class GameLoop implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (panel.isGameOver()) {
+        if (panel.isGameOver() || panel.isPaused()) {
             return ;
         }
         Tetromino currentPiece = panel.getCurrentPiece();
@@ -42,6 +42,13 @@ public class GameLoop implements ActionListener {
     }
     public void restart() {
         timer.stop();
+        timer.start();
+    }
+    public void pause() {
+        timer.stop();
+    }
+
+    public void resume() {
         timer.start();
     }
         

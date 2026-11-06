@@ -27,9 +27,15 @@ public KeyboardHandler(GamePanel panel,Board board) {
             panel.restartGame();
             return ;
         }
-        if (panel.isGameOver()) {
-            return ;
+            if (e.getKeyCode() == KeyEvent.VK_M) {
+            panel.toggleMusic();
+            return;
         }
+            if (e.getKeyCode() == KeyEvent.VK_P) {
+            panel.togglePause();
+            return;
+        }
+        if (panel.isGameOver() || panel.isPaused()) {
         Tetromino currentPiece = panel.getCurrentPiece();
         if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
             if (board.canMove(currentPiece, currentPiece.getCol() - 1, currentPiece.getRow())) {
@@ -67,6 +73,7 @@ public KeyboardHandler(GamePanel panel,Board board) {
             }
             panel.repaint();
         }
+    }
     }
     
     @Override

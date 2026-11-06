@@ -90,11 +90,8 @@ private int row;
     public void rotateCounterClockwise() {
         rotation = (rotation + 3) % 4;
     }
-    public void moveLeft() {
-        if (col > 0 ) {
-            col--;
-        }
-    
+       public void moveLeft() {
+        col--;
     }
 
     public void moveRight() {
