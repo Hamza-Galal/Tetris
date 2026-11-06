@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
+import main.java.tetris.Input.KeyboardHandler;
 import main.java.tetris.Model.Board;
 import main.java.tetris.Model.PieceGenerator;
 import main.java.tetris.Model.Tetromino;
@@ -24,6 +25,9 @@ public class GamePanel extends JPanel {
         board = new Board();
         currentPiece = generator.generatePiece();
         board.getGrid(); 
+        KeyboardHandler keyBoard = new KeyboardHandler(this , board); 
+        addKeyListener(keyBoard);
+        requestFocusInWindow();
     }
     
      public Tetromino getCurrentPiece(){

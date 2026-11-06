@@ -1,0 +1,53 @@
+package main.java.tetris.Input;
+
+import java.awt.event.KeyListener;
+import java.awt.event.KeyEvent;
+
+import main.java.tetris.Model.Board;
+import main.java.tetris.Model.Tetromino;
+import main.java.tetris.Ui.GamePanel;
+
+public class KeyboardHandler implements KeyListener {
+    private GamePanel panel;
+    private Board board;
+  
+
+public KeyboardHandler(GamePanel panel,Board board) {
+    this.panel = panel;
+    this.board = board;
+}
+    
+ @Override
+    public void keyTyped(KeyEvent e) {
+       
+    }
+    @Override
+    public void keyPressed(KeyEvent e) {
+        Tetromino currentPiece = panel.getCurrentPiece();
+        if (e.getKeyCode() == KeyEvent.VK_LEFT || e.getKeyCode() == KeyEvent.VK_A) {
+            if (board.canMove(currentPiece, currentPiece.getCol() - 1, currentPiece.getRow())) {
+                currentPiece.moveLeft();
+            }
+            panel.repaint();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_DOWN || e.getKeyCode() == KeyEvent.VK_S) {
+            if (board.canMove(currentPiece, currentPiece.getCol() , currentPiece.getRow() + 1)) {
+                currentPiece.moveDown();
+            }
+            panel.repaint();
+        }
+        if (e.getKeyCode() == KeyEvent.VK_RIGHT || e.getKeyCode() == KeyEvent.VK_D) {
+            if (board.canMove(currentPiece, currentPiece.getCol() + 1, currentPiece.getRow())) {
+                currentPiece.moveRight();
+            }
+            panel.repaint();   
+        }
+    }
+    
+    @Override
+    public void keyReleased(KeyEvent e) {
+        
+    }
+    
+}
+
