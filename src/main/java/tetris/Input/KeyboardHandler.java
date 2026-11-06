@@ -42,6 +42,24 @@ public KeyboardHandler(GamePanel panel,Board board) {
             }
             panel.repaint();   
         }
+        if (e.getKeyCode() == KeyEvent.VK_UP || e.getKeyCode() == KeyEvent.VK_W) {
+            currentPiece.rotateClockwise();
+            if (!board.canMove(currentPiece, currentPiece.getCol(), currentPiece.getRow())) {
+                int[] kicks = {-1, 1, -2, 2};
+                boolean fitted = false;
+                for (int k : kicks) {
+                    if (board.canMove(currentPiece, currentPiece.getCol() + k, currentPiece.getRow())) {
+                        currentPiece.setCol(currentPiece.getCol() + k);
+                        fitted = true;
+                        break;
+                    }
+                }
+                if (!fitted) {
+                    currentPiece.rotateCounterClockwise();
+                }
+            }
+            panel.repaint();
+        }
     }
     
     @Override

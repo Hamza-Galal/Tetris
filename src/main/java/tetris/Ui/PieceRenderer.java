@@ -63,7 +63,12 @@ private static final int Cell_Size = 30;
                 break;
         }  
     }
-
+        public void drawRotatedPiece(Graphics g, Tetromino piece) {
+        setColors(g, piece.getType());
+        for (int[] b : piece.getBlocks()) {
+            drawBlock(g, piece.getCol() + b[0], piece.getRow() + b[1]);
+        }
+    }
     private void  setColors(Graphics g ,String type){
         switch (type) {
             case "T":

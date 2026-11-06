@@ -56,6 +56,5 @@ public class GamePanel extends JPanel {
         }
     }
 
-    pieceRenderer.drawPiece(g,currentPiece);
-    }
+        pieceRenderer.drawRotatedPiece(g, currentPiece);    }
 }
