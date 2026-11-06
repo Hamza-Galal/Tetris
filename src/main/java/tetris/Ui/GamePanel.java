@@ -4,6 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import javax.swing.JPanel;
 
+import main.java.tetris.Engine.GameLoop;
 import main.java.tetris.Input.KeyboardHandler;
 import main.java.tetris.Model.Board;
 import main.java.tetris.Model.PieceGenerator;
@@ -17,6 +18,8 @@ public class GamePanel extends JPanel {
     private Tetromino currentPiece;
     private Board board;
     private PieceGenerator generator;
+    private GameLoop gameLoop;
+
     public GamePanel(){
         setBackground(Color.black);
         pieceRenderer = new PieceRenderer();
@@ -28,6 +31,8 @@ public class GamePanel extends JPanel {
         KeyboardHandler keyBoard = new KeyboardHandler(this , board); 
         addKeyListener(keyBoard);
         requestFocusInWindow();
+        gameLoop = new GameLoop(this , board);
+        
     }
     
      public Tetromino getCurrentPiece(){
