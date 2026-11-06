@@ -96,66 +96,7 @@ public class GamePanel extends JPanel {
                 }
         }
     }
-        if (!gameOver) {
-            pieceRenderer.drawPiece(g, currentPiece);
-            }
-        int boardW = Board_Width * Cell_Size;
-        int boardH = Board_Height * Cell_Size;
 
-      
-        g.setColor(new Color(24, 24, 36));
-        g.fillRect(boardW, 0, getWidth() - boardW, getHeight());
-        g.setColor(new Color(90, 90, 120));
-        g.drawLine(boardW, 0, boardW, boardH);
-
-        int sideX = boardW + 30;
-
-     
-        g.setColor(new Color(150, 150, 180));
-        g.setFont(font(14f));
-        g.drawString("SCORE", sideX, 60);
-        g.setColor(Color.WHITE);
-        g.setFont(font(28f));
-        g.drawString(String.valueOf(score), sideX, 115);
-
-     
-        g.setColor(new Color(150, 150, 180));
-        g.setFont(font(14f));
-        g.drawString("CONTROLS", sideX, 200);
-        g.setColor(Color.WHITE);
-        g.setFont(font(12f));
-        g.drawString("A / D or movement keys : Move", sideX, 235);
-        g.drawString("S : Drop", sideX, 262);
-        g.drawString("R : Restart", sideX, 289);
-
-       
-        if (gameOver) {
-            g.setColor(new Color(0, 0, 0, 190));
-            g.fillRect(0, 0, boardW, boardH);
-
-            g.setColor(new Color(255, 70, 70));
-            g.setFont(font(28f));
-            drawCentered(g, "GAME OVER", boardW, boardH / 2 - 15);
-
-            g.setColor(Color.WHITE);
-            g.setFont(font(14f));
-            drawCentered(g, "Final Score: " + score, boardW, boardH / 2 + 30);
-
-            g.setColor(new Color(150, 150, 180));
-            g.setFont(font(12f));
-            drawCentered(g, "Press R to restart", boardW, boardH / 2 + 65);
-        }
-    }
-        private Font loadFont() {
-        try {
-            return Font.createFont(Font.TRUETYPE_FONT, new File("fonts/PressStart2P-Regular.ttf"));
-        } catch (IOException | FontFormatException e) {
-            System.out.println("Font not found, using fallback: " + e.getMessage());
-            return new Font(Font.MONOSPACED, Font.BOLD, 12);
-        }
-    }
-
-    private Font font(float size) {
-        return retroFont.deriveFont(size);
+    pieceRenderer.drawPiece(g,currentPiece);
     }
 }

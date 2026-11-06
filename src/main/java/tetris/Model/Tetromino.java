@@ -4,6 +4,7 @@ public class Tetromino {
 private int row;
     private int col;
     private String type;
+    private int rotation = 0;
     public Tetromino(int row, int col , String type) {
         this.row = row;
         this.col = col;
@@ -27,7 +28,7 @@ private int row;
     public void setType(String type) {
         this.type = type;
     }
-    public int [][]getBlocks(){
+    private int[][] getBaseBlocks(){
         switch (type) {
             case "T":
                 return new int[][]{
@@ -60,6 +61,34 @@ private int row;
            
         }
          return new int[0][0];
+    }
+        public int[][] getBlocks() {
+        int[][] blocks = getBaseBlocks();
+        for (int i = 0; i < rotation; i++) {
+            blocks = rotateBlocks(blocks);
+        }
+        return blocks;
+    }
+
+    private int[][] rotateBlocks(int[][] blocks) {
+        int maxY = 0;
+        for (int[] b : blocks) {
+            maxY = Math.max(maxY, b[1]);
+        }
+        int[][] result = new int[blocks.length][2];
+        for (int i = 0; i < blocks.length; i++) {
+            result[i][0] = maxY - blocks[i][1];
+            result[i][1] = blocks[i][0];
+        }
+        return result;
+    }
+
+    public void rotateClockwise() {
+        rotation = (rotation + 1) % 4;
+    }
+
+    public void rotateCounterClockwise() {
+        rotation = (rotation + 3) % 4;
     }
     public void moveLeft() {
         if (col > 0 ) {
