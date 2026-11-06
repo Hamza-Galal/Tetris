@@ -6,3 +6,6 @@ bin/
 build/
 dist/
 release/
+sources.txt
+manifest.txt
+*.zip
